@@ -53,6 +53,12 @@ async function createWedding(
 	return result.rows[0]
 }
 
+async function getWedding(weddingId) {
+	const command = `SELECT * FROM weddings where id = $1`
+	const result = await newPool().query(command, [weddingId])
+	return result.rows[0]
+}
+
 async function getWeddingInfo(weddingId) {
 	const command = `SELECT 
 			id, "userId", "brideName", "groomName", date, location
@@ -71,6 +77,7 @@ async function getWeddingGuests(weddingId) {
 module.exports = {
 	commands,
 	createWedding,
+	getWedding,
 	getWeddingInfo,
 	getWeddingGuests,
 	updateGuests,

@@ -63,9 +63,17 @@ app.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
 		})
 		
 	} else if (q == "amount") {
-		const allGuests = await weddingDb.getWeddingGuests(weddingId) || []	
-		const gifts = getWeddingGifts(allGuests)
+		const allGuests = await weddingDb.getWeddingGuests(weddingId)
+		const gifts = getWeddingGifts(allGuests || [])
 		res.status(200).json(gifts)
+
+	} else if (q == "guest") {
+		const wedding = await weddingDb.getWeddingInfo(weddingId)	
+		const allGuests = await weddingDb.getWeddingGuests(weddingId)
+		const name = req.params.guestName
+		const guest = allGuests.find(element => element.name == name)
+		wedding.guest = guest
+		res.status(200).json(wedding)
 
 	} else {
 		const weddingInfo = await weddingDb.getWeddingInfo(weddingId)
