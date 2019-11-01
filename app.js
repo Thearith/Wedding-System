@@ -62,17 +62,6 @@ app.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
 	}
 }))
 
-app.post("/weddings", asyncWrap(async (req, res) => {
-	const userId = req.body.userId
-	const brideName = req.body.brideName
-	const groomName = req.body.groomName
-	const date = req.body.date
-	const location = req.body.location
-	const guests = req.body.guests || []
-	const wedding = await weddingDb.createWedding(userId, brideName, groomName, date, location, guests)
-	res.status(200).json(wedding)
-}))
-
 app.post("/weddings/:weddingId", asyncWrap(async (req, res) => {
 	const weddingId = req.params.weddingId
 	const q = req.query.q
@@ -138,6 +127,17 @@ app.get("/weddings", asyncWrap(async (req, res) => {
 	const userId = req.body.userId
 	const weddings = await weddingDb.getWeddings(userId)
 	res.status(200).json(weddings)
+}))
+
+app.post("/weddings", asyncWrap(async (req, res) => {
+	const userId = req.body.userId
+	const brideName = req.body.brideName
+	const groomName = req.body.groomName
+	const date = req.body.date
+	const location = req.body.location
+	const guests = req.body.guests || []
+	const wedding = await weddingDb.createWedding(userId, brideName, groomName, date, location, guests)
+	res.status(200).json(wedding)
 }))
 
 function getWeddingGifts(weddingGuests) {
