@@ -100,15 +100,22 @@ app.post("/weddings/:weddingId", asyncWrap(async (req, res) => {
 		}
 
 		const guests = await weddingDb.getWeddingGuests(weddingId)
+		let isGuestFound = false
 		for (i = 0; i < guests.length; i++) {
 			if (guests[i].name == guestName) {
 				guests[i] = guestInfo
+				isGuestFound = true
 				break
 			}
+		}
+
+		if (!isGuestFound) {
+			guests.push(guestInfo)
 		}
 		
 		const wedding = await weddingDb.updateGuests(weddingId, guests)
 		res.status(200).json(wedding)
+
 	} else {
 		const guestNames = req.body.guests || []
 		const guests = []
