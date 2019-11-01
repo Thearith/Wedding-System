@@ -31,27 +31,6 @@ app.post("/signUp", asyncWrap(async (req, res) => {
 	res.sendStatus(200)
 }))
 
-app.use("/", asyncWrap(async (req, res, next) => {
-	const email = req.headers.email
-	const password = req.headers.password
-	const user = await userDb.getUser(email, password)
-	if (user == null) {
-		throw {
-			code: 401,
-			message: 'Unauthorized'
-		}
-	}
-
-	req.body.userId = user.id
-	next()
-}))
-
-app.get("/weddings", asyncWrap(async (req, res) => {
-	const userId = req.body.userId
-	const weddings = await weddingDb.getWeddings(userId)
-	res.status(200).json(weddings)
-}))
-
 app.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
 	const q = req.query.q
 	const weddingId = req.params.weddingId
@@ -70,8 +49,10 @@ app.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
 	} else if (q == "guest") {
 		const wedding = await weddingDb.getWeddingInfo(weddingId)	
 		const allGuests = await weddingDb.getWeddingGuests(weddingId)
-		const name = req.params.guestName
+		console.log(allGuests)
+		const name = req.query.guestName
 		const guest = allGuests.find(element => element.name == name)
+		console.log(name)
 		wedding.guest = guest
 		res.status(200).json(wedding)
 
@@ -136,6 +117,27 @@ app.post("/weddings/:weddingId", asyncWrap(async (req, res) => {
 		const wedding = await weddingDb.updateGuests(weddingId, guests)
 		res.status(200).json(wedding)
 	}
+}))
+
+app.use("/", asyncWrap(async (req, res, next) => {
+	const email = req.headers.email
+	const password = req.headers.password
+	const user = await userDb.getUser(email, password)
+	if (user == null) {
+		throw {
+			code: 401,
+			message: 'Unauthorized'
+		}
+	}
+
+	req.body.userId = user.id
+	next()
+}))
+
+app.get("/weddings", asyncWrap(async (req, res) => {
+	const userId = req.body.userId
+	const weddings = await weddingDb.getWeddings(userId)
+	res.status(200).json(weddings)
 }))
 
 function getWeddingGifts(weddingGuests) {
