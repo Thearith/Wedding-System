@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const asyncWrap = require('./AsyncMiddleware')
 const userDb = require('./db/User')
@@ -7,6 +8,13 @@ const weddingDb = require('./db/Wedding')
 
 const app = express()
 app.use(bodyParser.json())
+app.use(cors())
+
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*")
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+	next()
+})
 
 app.post("/login", asyncWrap(async (req, res) => {
 	const email = req.body.email
@@ -19,7 +27,7 @@ app.post("/login", asyncWrap(async (req, res) => {
 		}
 	}
 
-	res.sendStatus(200)
+	res.status(200).json({ message: 'Login success'})
 }))
 
 app.post("/signUp", asyncWrap(async (req, res) => {
@@ -28,7 +36,7 @@ app.post("/signUp", asyncWrap(async (req, res) => {
 	const password = req.body.password
 	console.log(name + email)
 	await userDb.createUser(name, email, password)
-	res.sendStatus(200)
+	res.status(200).json({ message: 'Sign Up success'})
 }))
 
 app.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
