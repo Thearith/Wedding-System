@@ -1,0 +1,53 @@
+#wedding-title {
+	margin: 30px 40px;
+}
+
+#wedding-count {
+	font-size: 2.5rem;
+	font-weight: 300;
+	margin-bottom: 0;
+}
+
+#btn-modal-add-wedding {
+	height: 40px;
+}
+
+#wedding-list {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.wedding-card .card {
+	padding: 20px;
+	margin: 20px;
+}
+
+.wedding-card .heart {
+	font-size: 20px; 
+	color: red; 
+	text-align: center;
+}
+
+.wedding-names {
+	text-align: center;
+}
+
+.wedding-card .wedding-date {
+	font-size: 0.9rem;
+	color: #6c757d;
+	text-align: right;
+}
+
+.wedding-card .wedding-names {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 1.2rem;
+}
+
+.wedding-card .location {
+	margin-left: 5px;
+}
+
+.view-more {
+	margin-top: 20px;
+}

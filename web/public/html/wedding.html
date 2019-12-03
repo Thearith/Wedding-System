@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link 
+			rel="stylesheet" 
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+			crossorigin="anonymous" />
+
+		<link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+		<link rel="stylesheet" href="/stylesheets/wedding.css" />
+	</head>
+	<body>
+		
+		<div class="container">
+			
+			<nav class="navbar navbar-dark">
+				<a class="navbar-brand" href="/">Wedding System</a>
+				<a class="navbar-text white-text ml-auto" id="logout" href="/">Log Out</a>
+			</nav>
+
+			<div class="row name-container">
+				<span class="col-5" id="groom-name"></span>
+				<span class="col-2" id="heart">
+					<i class="fas fa-heart"></i>
+				</span>
+				<span class="col-5" id="bride-name"></span>
+			</div>
+
+			<div class="location-time-container">
+				<div class="d-flex align-items-center">
+					<i class="fas fa-map-marker-alt"></i>
+					<p id="location"></p>
+				</div>
+				<div class="d-flex align-items-center">
+					<i class="far fa-calendar-alt"></i>
+					<p id="date"></p>
+				</div>
+			</div>
+
+			<div class="row wedding-info-container">
+				<div class="col-4 d-flex flex-column align-items-center">
+					<i class="fas fa-users"></i>
+					<p id="number-guests"></p>
+				</div>
+				<div class="col-4 d-flex flex-column align-items-center">
+					<i class="fas fa-dollar-sign"></i>
+					<p id="dollar-gifts"></p>
+				</div>
+				<div class="col-4 d-flex flex-column align-items-center">
+					<i class="far fa-money-bill-alt"></i>
+					<p id="riel-gifts"></p>
+				</div>
+			</div>
+
+			<div class="wedding-guests-container">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" 
+								id="guests-tab" data-toggle="tab" href="#guests" 
+								role="tab" aria-controls="guests" aria-selected="true">Guests</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" 
+								id="qrcode-tab" data-toggle="tab" href="#qrcode" 
+								role="tab" aria-controls="qrcode" aria-selected="false">QR Code</a>
+					</li>
+				</ul>
+				
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="guests" role="tabpanel" aria-labelledby="guests-tab">
+						<div class="guests-table-title d-flex justify-content-between">
+							<p class="guests-title">Guests</p>
+							<button class="btn btn-primary" data-toggle="modal" data-target="#update-guest-list-modal">
+								Update Guests List
+							</button>
+						</div>
+
+						<div class="guest-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Name</th>
+										<th scope="col">Gift Amount ($)</th>
+										<th scope="col">Gift Amount (៛)</th>
+									</tr>
+								</thead>
+								<tbody>		
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="tab-pane fade show" id="qrcode" role="tabpanel" aria-labelledby="qrcode-tab">
+
+						<h2>Instructions</h2>
+						<ol class="instructions-list">
+							<li>There are 3 types of QR Codes with different use cases.</li>
+							<li>Go to this website <a href="https://qrexplore.com/generate/" target="_blank">https://qrexplore.com/generate/</a> to generate QR Codes.</li>
+							<li>For every type, click "Copy to Clipboard" and paste it on the website.</li>
+							<li>On the website, please also check "Treat as CSV" and "Add filename to image".</li>
+							<li>Click "Generate Codes" and save the QR Codes.</li>
+						</ol>
+						
+						<h2 class="qrcode-type-title">Type 1</h2>
+						<p class="qrcode-type-description">Print this type of QR Code on every guest's wedding invitation. 
+							When each guests present with their wedding invitation, you can use app to immediately scan and input
+							their money gift.
+						</p>
+
+						<div class="d-flex justify-content-end">
+							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type1">
+								<i class="far fa-copy"></i>
+								Copy to Clipboard
+							</button>
+						</div>
+
+						<div class="qrcode-type">
+							<code id="qrcode-type1"></code>
+						</div>
+
+						<h2 class="qrcode-type-title">Type 2</h2>
+						<p class="qrcode-type-description">Scan this type of QR Code when a guest forgets to bring his invitation card. Once scanned,
+							type in their name and money gift.
+						</p>
+
+						<div class="d-flex justify-content-end">
+							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type2">
+								<i class="far fa-copy"></i>
+								Copy to Clipboard
+							</button>
+						</div>
+
+						<div class="qrcode-type">
+							<code id="qrcode-type2"></code>
+						</div>
+
+						<h2 class="qrcode-type-title">Type 3</h2>
+						<p class="qrcode-type-description">Scan this type of QR Code to view current gift amount in mobile phone
+						</p>
+
+						<div class="d-flex justify-content-end">
+							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type3">
+								<i class="far fa-copy"></i>
+								Copy to Clipboard
+							</button>
+						</div>
+
+						<div class="qrcode-type">
+							<code id="qrcode-type3"></code>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="modal" tabindex="-1" role="dialog" id="update-guest-list-modal" aria-labelledby="update-guest-list-label" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5>Update Guest List</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="guest-list-textarea">Guest List <i>(Each name per line):</i></label>
+									<textarea class="form-control" id="guest-list-textarea" rows="3"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer d-flex flex-column">
+							<i>Clicking submit will update the current list with the current one. All info including gift amount will be lost.</i>
+							<button type="button" id="btn-update-guests" class="btn btn-success align-self-end">Update</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="https://kit.fontawesome.com/bd1e1cda96.js" crossorigin="anonymous"></script>
+
+		<script 
+			src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script 
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+			crossorigin="anonymous"></script>
+		<script 
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+			crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="/javascripts/auth.js"></script>
+		<script type="text/javascript" src="/javascripts/wedding.js"></script>
+
+	</body>
+</html>

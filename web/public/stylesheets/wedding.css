@@ -1,0 +1,126 @@
+.name-container {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 50px;
+	font-size: 2.8rem;
+}
+
+#groom-name {
+	text-align: right;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#bride-name {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#heart {
+	color: red;
+	text-align: center;
+}
+
+.location-time-container {
+	margin-top: 30px;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.location-time-container div {
+	margin-bottom: 8px;
+	font-size: 1.2rem;
+}
+
+.location-time-container div i {
+	margin-right: 20px;
+}
+
+.wedding-info-container {
+	margin-top: 60px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.wedding-info-container i {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.wedding-info-container p {
+	font-size: 1.3rem;
+}
+
+.wedding-guests-container {
+	margin-left: 120px;
+	margin-right: 120px;
+}
+
+.wedding-guests-container div button {
+	margin-left: 20px;
+}
+
+.wedding-guests-container {
+	margin-top: 40px;
+}
+
+.guests-table-title {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.guest-table {
+	margin-top: 20px;
+}
+
+.guests-title {
+	font-size: 2rem;
+}
+
+#update-guest-list-modal .modal-footer i {
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+#qrcode {
+	padding: 20px;
+}
+
+.qrcode-type-description {
+	font-style: italic;
+	margin-top: 16px;
+	font-size: 1rem;
+}
+
+.qrcode-type {
+	padding: 20px;
+    margin-top: 10px;
+    background-color: #f1f1f1;
+}
+
+.qrcode-type-title {
+	margin-top: 10px;
+	font-size: 1.7rem;
+}
+
+.qrcode-type {
+	margin-bottom: 40px;
+}
+
+.qrcode-type code {
+	color: #303336;
+}
+
+#qrcode-type1 {
+	max-height: 100%
+}
+
+.instructions-list {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.qrcode-copy-clipboard {
+	display: block;
+	margin-top: 20px;
+}

@@ -1,0 +1,23 @@
+.hide {
+	display: none;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+.container {
+	max-width: 100%;
+	padding: 0;
+	color: #282c32;
+}
+
+.container nav {
+	background-color: #009688;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+nav .white-text {
+	color: white !important;
+}

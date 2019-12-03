@@ -1,0 +1,24 @@
+.auth-form {
+	margin-top: 150px;
+	padding: 36px 50px;
+}
+
+.login-form {
+	margin-top: 20px;
+}
+
+.login-form .btn {
+	width: 100%
+}
+
+.login-form .create-account {
+	margin-top: 12px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: gray;
+	font-size: 14px;
+}
+
+.login-form .create-account a {
+	color: green;
+}
