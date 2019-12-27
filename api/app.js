@@ -42,9 +42,12 @@ router.get("/weddings/:weddingId", asyncWrap(async (req, res) => {
 		})
 		
 	} else if (q == "amount") {
-		const allGuests = await weddingDb.getWeddingGuests(weddingId)
+		const wedding = await weddingDb.getWedding(weddingId)
+		const allGuests = wedding.guests
 		const gifts = getWeddingGifts(allGuests || [])
-		res.status(200).json(gifts)
+		wedding.gifts = gifts
+		wedding.guests = undefined
+		res.status(200).json(wedding)
 
 	} else if (q == "guest") {
 		const wedding = await weddingDb.getWeddingInfo(weddingId)	
