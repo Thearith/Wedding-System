@@ -149,8 +149,8 @@ function getWeddingGifts(weddingGuests) {
 
 	for (i = 0; i < weddingGuests.length; i++) {
 		const guest = weddingGuests[i]
-		amountInDollar += guest.dollarAmount || 0
-		amountInRiel += guest.rielAmount || 0
+		amountInDollar += parseFloat(guest.dollarAmount) || 0
+		amountInRiel += parseFloat(guest.rielAmount) || 0
 	}
 
 	return  {
