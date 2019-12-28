@@ -103,8 +103,8 @@ $(document).ready(function() {
 		var rielSum = 0
 		for(i=0; i<guestCount; i++) {
 			var guest = guests[i]
-			dollarSum += (guest.dollarAmount || 0)
-			rielSum += (guest.rielAmount || 0)
+			dollarSum += parseFloat(guest.dollarAmount) || 0
+			rielSum += parseFloat(guest.rielAmount) || 0
 		}
 
 		$('#number-guests').text(guestCount + " Guests")
