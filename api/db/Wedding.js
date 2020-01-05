@@ -9,12 +9,14 @@ const commands = {
 			"groomName" VARCHAR(50) NOT NULL,
 			date VARCHAR(50) NOT NULL,
 			location VARCHAR(300),
-			guests JSONB [] NOT NULL DEFAULT '{}'
+			guests JSONB [] NOT NULL DEFAULT '{}',
+			"groomPhotoUrl" VARCHAR, 
+			"bridePhotoUrl" VARCHAR
 		);
 	`,
 
 	insertRow: `
-		INSERT INTO weddings("userId", "brideName", "groomName", date, location, guests)
+		INSERT INTO weddings("userId", "brideName", "groomName", date, location, guests, "groomPhotoUrl", "bridePhotoUrl")
 		VALUES($1, $2, $3, $4, $5, $6)
 		RETURNING *
 		;
@@ -25,7 +27,7 @@ const commands = {
 
 async function getWeddings(userId) {
 	const command = `SELECT 
-			id, "userId", "brideName", "groomName", date, location
+			id, "userId", "brideName", "groomName", date, location, "groomPhotoUrl", "bridePhotoUrl"
 		FROM weddings where "userId" = $1
 	`
 	const result = await newPool().query(command, [userId])
@@ -46,9 +48,12 @@ async function createWedding(
 	groomName,
 	date,
 	location,
-	guests
+	guests,
+	groomPhotoUrl,
+	bridePhotoUrl
 ) {
-	const values = [userId, brideName, groomName, date, location, guests]
+	const values = [userId, brideName, groomName, date, location, guests,
+		groomPhotoUrl, bridePhotoUrl]
 	const result = await newPool().query(commands.insertRow, values)
 	return result.rows[0]
 }
@@ -61,7 +66,8 @@ async function getWedding(weddingId) {
 
 async function getWeddingInfo(weddingId) {
 	const command = `SELECT 
-			id, "userId", "brideName", "groomName", date, location
+			id, "userId", "brideName", "groomName", date, location, "groomPhotoUrl",
+			"bridePhotoUrl"
 		FROM weddings where id = $1
 	`
 	const result = await newPool().query(command, [weddingId])
