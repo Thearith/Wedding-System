@@ -7,31 +7,34 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 			crossorigin="anonymous" />
 
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+
 		<link rel="stylesheet" href="/stylesheets/stylesheet.css" />
 		<link rel="stylesheet" href="/stylesheets/auth.css" />
 	</head>
 	<body>
 		
 		<div class="container">
-			<div class="row justify-content-md-center">
-				
-				<div class="card col col-lg-6 auth-form" id="login">
-					<h2>Login</h2>
 
+			<div class="row justify-content-md-center">
+				<img id="logo" src="/images/logo_and_name.png" />
+			</div>
+
+			<div class="row justify-content-md-center">
+				<p class="auth-form-header">Welcome back, darling!</p>
+			</div>
+
+			<div class="row justify-content-md-center">
+				<div class="col col-lg-5 auth-form" id="login">
 					<form class="login-form" id="login-form">
-						<div class="form-group">
-							<input 
-								type="email" 
-								class="form-control" 
-								placeholder="Email Address" />
-						</div>
-						<div class="form-group">
-							<input 
-								type="password" 
-								class="form-control" 
-								placeholder="Password" />
-						</div>
-						<button type="submit" class="btn btn-success" id="login-submit">Login</button>
+						<input 
+							type="email" 
+							placeholder="Email" />
+						<input 
+							type="password"
+							placeholder="Password" />
+						<button type="submit" class="btn" id="login-submit">Log In</button>
 						<p class="create-account">
 							Not registered? 
 							<a>Create an account</a>
@@ -39,35 +42,23 @@
 					</form>
 				</div>
 
-				<div class="card col col-lg-6 auth-form hide" id="signup">
-					<h2>Sign Up</h2>
-
+				<div class="col col-lg-5 auth-form hide" id="signup">
 					<form class="login-form" id="signup-form">
-						<div class="form-group">
-							<input 
-								type="name" 
-								class="form-control" 
-								placeholder="Full Name" />
-						</div>
-						<div class="form-group">
-							<input 
-								type="email" 
-								class="form-control" 
-								placeholder="Email Address" />
-						</div>
-						<div class="form-group">
-							<input 
-								type="password" 
-								class="form-control" 
-								placeholder="Password" />
-						</div>
-						<button type="submit" class="btn btn-success" id="signup-submit">Sign Up</button>
+						<input 
+							type="name" 				
+							placeholder="Full Name" />
+						<input 
+							type="email"
+							placeholder="Email" />
+						<input 
+							type="password" 
+							placeholder="Password" />
+						<button type="submit" class="btn" id="signup-submit">Sign Up</button>
 						<p class="create-account">Got an account? 
 							<a>Sign in now</a>
 						</p>
 					</form>
 				</div>
-
 			</div>
 		</div>
 

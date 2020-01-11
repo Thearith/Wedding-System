@@ -10,6 +10,7 @@ p {
 	max-width: 100%;
 	padding: 0;
 	color: #282c32;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .container nav {
@@ -20,4 +21,20 @@ p {
 
 nav .white-text {
 	color: white !important;
+}
+
+a {
+	cursor: pointer;
+}
+
+::-webkit-input-placeholder { /* Edge */
+ color: white;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: white;
+}
+
+::placeholder {
+	color: white;
 }

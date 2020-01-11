@@ -6,12 +6,16 @@ $(document).ready(function() {
 
 	$('#login .create-account a').click(function() {
 		$('#login').addClass('hide')
+		$('.auth-form-header').html(
+			"Can’t wait to get married?<br/>Create a new account.")
 		$('#signup').removeClass('hide')
 	})
 
 	$('#signup .create-account a').click(function() {
 		$('#login').removeClass('hide')
 		$('#signup').addClass('hide')
+		$('.auth-form-header').text(
+			"Welcome back, darling!")
 	})
 
 	$('#signup-form').submit(function(e) {
