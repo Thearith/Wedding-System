@@ -14,13 +14,21 @@ p {
 }
 
 .container nav {
-	background-color: #009688;
-	padding-left: 30px;
-	padding-right: 30px;
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	padding: 0px 40px;
 }
 
 nav .white-text {
 	color: white !important;
+}
+
+.navbar-text {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+.navbar-brand img {
+	height: 80px;
 }
 
 a {

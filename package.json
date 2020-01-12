@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./app.js",
     "reload": "nodemon ./app.js",
-    "create": "node ./db/Seed.js createTables",
-    "drop": "node ./db/Seed.js dropTables",
+    "create": "node ./api/db/Seed.js createTables",
+    "drop": "node ./api/db/Seed.js dropTables",
     "seed": "npm run drop && npm run create"
   },
   "author": "",

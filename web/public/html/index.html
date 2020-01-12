@@ -7,6 +7,9 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 			crossorigin="anonymous" />
 
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+
 		<link rel="stylesheet" href="/stylesheets/stylesheet.css" />
 		<link rel="stylesheet" href="/stylesheets/index.css" />
 	</head>
@@ -15,85 +18,120 @@
 		<div class="container">
 			
 			<nav class="navbar navbar-dark">
-				<a class="navbar-brand" href="/">Wedding System</a>
-				<a class="navbar-text white-text ml-auto" id="logout" href="/">Log Out</a>
+				<a class="navbar-brand" href="/">
+					<img src="/images/logo_and_name_hor.png" />
+				</a>
+				<a class="navbar-text white-text ml-auto">DASHBOARD</a>
+				<a class="navbar-text white-text ml-auto" id="logout">Log out</a>
 			</nav>
 
 			<div class="d-flex justify-content-between align-items-center" id="wedding-title">
 				<p id="wedding-count"></p>
-
-				<button class="btn btn-primary" id="btn-modal-add-wedding" data-toggle="modal" data-target="#add-wedding-modal">
-					Add Wedding
-				</button>
 			</div>
 
-			<div class="row" id="wedding-list">
-				
-				<div class="col-4 hide wedding-card">
+			<div class="row justify-content-around" id="wedding-list">
+				<div class="col-5 hide wedding-card">
 					<div class="card">
-						<i class="wedding-date"></i>
 						<div class="container wedding-names">
-							<div class="row d-flex align-items-center">
-								<span class="col-5 groom-name"></span>
-								<span class="col-2 heart">
-									<i class="fas fa-heart"></i>
-								</span>
-								<span class="col-5 bride-name"></span>	
+							<div class="row d-flex align-items-center justify-content-center">
+								<div class="col-4 d-flex groom-cont justify-content-end">
+									<img class="groom-photo" src="/images/ic_groom.png" />
+								</div>
+								<img class="col-3 wedding-heart"
+									src="/images/heart_pink.png" />
+								<div class="col-4 d-flex bride-cont justify-content-start">
+									<img class="bride-photo" src="/images/ic_bride.png" />
+								</div>								
+							</div>
+							<div class="row d-flex align-items-center justify-content-center">
+								<span class="col-4 groom-name groom-cont"></span>
+								<span class="col-3"></span>							
+								<span class="col-4 bride-name bride-cont"></span>
 							</div>
 						</div>
-						<span>
-							<i class="fas fa-map-marker-alt"></i>
+						<span class="wedding-loc-date">
+							<img src="/images/ic_location.png">
 							<span class="location"></span>
 						</span>
-
-						<button class="btn btn-info view-more">View Wedding</button>
-					</div>
-				</div>
-
-				<div class="modal" tabindex="-1" role="dialog" id="add-wedding-modal" aria-labelledby="add-wedding-modal-label" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5>Add Wedding</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form class="add-wedding-form" id="add-wedding-form">
-									<div class="form-group">
-										<input 
-											type="text" 
-											class="form-control" 
-											placeholder="Groom's Name" />
-									</div>
-									<div class="form-group">
-										<input 
-											type="text" 
-											class="form-control" 
-											placeholder="Bride's Name" />
-									</div>
-									<div class="form-group">
-										<input 
-											type="text" 
-											class="form-control" 
-											placeholder="Location" />
-									</div>
-									<div class="form-group">
-										<input 
-											type="date" 
-											class="form-control" 
-											placeholder="Date" />
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" id="btn-add-wedding" class="btn btn-success">Submit</button>
-							</div>
+						<span class="wedding-loc-date">
+							<img src="/images/ic_date.png" />
+							<span class="wedding-date"></span>
+						</span>
+						
+						<div class="row d-flex justify-content-center">
+							<button class="btn col-11 view-more">
+								View Wedding
+							</button>
 						</div>
 					</div>
 				</div>
 
+				<div class="col-5 d-flex justify-content-center align-items-center"
+				 	id="btn-modal-add-wedding">
+					<img src="/images/add.png"  
+						data-toggle="modal" 
+						data-target="#add-wedding-modal" />
+				</div>
+
+			</div>
+
+			<div class="modal" tabindex="-1" role="dialog" id="add-wedding-modal" aria-labelledby="add-wedding-modal-label" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" id="add-wedding-modal-content">
+						<div class="modal-header">
+							<p>Add Wedding</p>
+							<img 
+								type="button"
+								data-dismiss="modal" 
+								aria-label="Close"
+								src="/images/close.png" />
+						</div>
+						<div class="modal-body">
+							<form class="add-wedding-form" id="add-wedding-form">
+								<div class="form-group">
+									<label>Groom's Name</label>
+									<input 
+										type="text" 
+										class="form-control"/>
+								</div>
+								<div class="form-group">
+									<label>Bride's Name</label>
+									<input 
+										type="text" 
+										class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Groom's Photo</label>
+									<input 
+										type="text" 
+										class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Bride's Photo</label>
+									<input 
+										type="text" 
+										class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Location</label>
+									<input 
+										type="text" 
+										class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Date</label>
+									<input 
+										type="date" 
+										class="form-control"
+										placeholder="Date" />
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="btn-add-wedding" class="btn">Submit</button>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>

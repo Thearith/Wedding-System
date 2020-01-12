@@ -6,11 +6,14 @@ $(document).ready(function() {
 		var inputs = $('#add-wedding-form input')
 		var groomName = inputs[0].value
 		var brideName = inputs[1].value
-		var location = inputs[2].value
-		var date = inputs[3].value
+		var groomPhotoUrl = inputs[2].value
+		var bridePhotoUrl = inputs[3].value
+		var location = inputs[4].value
+		var date = inputs[5].value
 
 		if (groomName && brideName && location && date) {
-			makeAddWeddingRequest(groomName, brideName, location, date)
+			makeAddWeddingRequest(groomName, brideName, location, date, groomPhotoUrl, 
+				bridePhotoUrl)
 		} else {
 			alert("Please add all inputs before submit")
 		}
@@ -20,6 +23,8 @@ $(document).ready(function() {
 		var weddingId = $(this).data("id")
 		navigateToWeddingDetailScreen(weddingId)
 	});
+
+	$("#btn-modal-add-wedding").height($('.wedding-card').height())
 
 	$.ajax({
 		url: "/api/weddings",
@@ -39,12 +44,15 @@ $(document).ready(function() {
 		}
 	})
 
-	function makeAddWeddingRequest(groomName, brideName, location, date) {
+	function makeAddWeddingRequest(groomName, brideName, location, date, 
+		groomPhotoUrl, bridePhotoUrl) {
 		var payload = {
 			groomName,
 			brideName,
 			date,
-			location
+			location,
+			groomPhotoUrl,
+			bridePhotoUrl
 		}
 		$.ajax({
 			url: "/api/weddings",
@@ -60,7 +68,7 @@ $(document).ready(function() {
 				$('#add-wedding-modal').modal('hide')
 				$('#add-wedding-form')[0].reset()
 
-				var weddingCountText = $('#wedding-count').text()
+				var weddingCountText = $('#wedding-count p').text()
 				var countText = weddingCountText.split(" ")[0]
 				var count = parseInt(countText)
 				setUpWeddingCount(count + 1)
@@ -76,8 +84,9 @@ $(document).ready(function() {
 
 	function setUpWeddingCount(count) {
 		console.log(count)
-		var weddingTxt = count == 1 ? " Wedding" : " Weddings"
-		$('#wedding-count').text(count + weddingTxt)
+		var weddingTxt = count == 1 ? "1 wedding" : `${count} weddings`
+		var weddingHtml = `<p>${weddingTxt}</p>`
+		$('#wedding-count').html("Welcome! You have " + weddingHtml + " to attend.")
 	}
 
 	function setUpWeddingCards(weddings) {
@@ -94,7 +103,16 @@ $(document).ready(function() {
 		weddingCard.find('.bride-name').text(wedding.brideName)
 		weddingCard.find('.location').text(wedding.location)
 		weddingCard.find('.view-more').data("id", wedding.id)
-		weddingCard.appendTo('#wedding-list')
+
+		if (wedding.groomPhotoUrl != null) {
+			weddingCard.find('.groom-photo').attr("src", wedding.groomPhotoUrl)
+		}
+
+		if (wedding.groomPhotoUrl != null) {
+			weddingCard.find('.bride-photo').attr("src", wedding.bridePhotoUrl)
+		}
+
+		weddingCard.insertBefore("#btn-modal-add-wedding")
 	}
 
 	function navigateToWeddingDetailScreen(weddingId) {

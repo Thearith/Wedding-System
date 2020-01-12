@@ -139,7 +139,10 @@ router.post("/weddings", asyncWrap(async (req, res) => {
 	const date = req.body.date
 	const location = req.body.location
 	const guests = req.body.guests || []
-	const wedding = await weddingDb.createWedding(userId, brideName, groomName, date, location, guests)
+	const groomPhotoUrl = req.body.groomPhotoUrl
+	const bridePhotoUrl = req.body.bridePhotoUrl
+	const wedding = await weddingDb.createWedding(userId, brideName, groomName, date, location, guests,
+		groomPhotoUrl, bridePhotoUrl)
 	res.status(200).json(wedding)
 }))
 

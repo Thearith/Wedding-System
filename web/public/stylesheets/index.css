@@ -1,25 +1,36 @@
 #wedding-title {
-	margin: 30px 40px;
+	margin-top: 50px;
+	text-align: center;
 }
 
 #wedding-count {
-	font-size: 2.5rem;
+	width: 100%;
+	font-size: 40px;
 	font-weight: 300;
 	margin-bottom: 0;
+	color: #606060;
 }
 
-#btn-modal-add-wedding {
-	height: 40px;
+#wedding-count p {
+	color: #FC5989;
+	font-weight: 600;
+	display: inline;
+}
+
+#btn-modal-add-wedding img {
+	height: 130px;
 }
 
 #wedding-list {
-	margin-left: 30px;
-	margin-right: 30px;
+	margin: 30px;
 }
 
 .wedding-card .card {
 	padding: 20px;
 	margin: 20px;
+	border-radius: 20px;
+	border-color: #FC5989;
+	border-width: 5px;
 }
 
 .wedding-card .heart {
@@ -32,22 +43,109 @@
 	text-align: center;
 }
 
-.wedding-card .wedding-date {
-	font-size: 0.9rem;
-	color: #6c757d;
-	text-align: right;
-}
-
 .wedding-card .wedding-names {
 	margin-bottom: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 1.2rem;
 }
 
-.wedding-card .location {
-	margin-left: 5px;
+.view-more {
+	margin-top: 30px;
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	padding: 8px 0px;
+	color: white;
+	font-size: 24px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 12px;
 }
 
-.view-more {
-	margin-top: 20px;
+#add-wedding-modal-content {
+	border-radius: 20px;
+	padding: 30px;
+}
+
+#add-wedding-modal-content .modal-header, 
+#add-wedding-modal-content .modal-footer {
+	color: #FC5989;
+	border: none;
+}
+
+#add-wedding-modal-content .modal-header {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 40px;
+	padding-top: 0px;
+}
+
+#add-wedding-modal-content .modal-footer {
+	padding-top: 0px;
+}
+
+#add-wedding-modal-content .modal-body {
+	color: #606060;
+}
+
+.modal-header img {
+	height: 50px;
+	vertical-align: middle;
+	margin-top: 6px;
+}
+
+#add-wedding-modal-content .modal-header button span {
+	color: #FC5989;
+	font-size: 36px;
+}
+
+#add-wedding-modal-content input {
+	margin-bottom: 16px;
+	border-radius: 0px;
+}
+
+#btn-add-wedding {
+	width: 100%;
+	color: white;
+	font-size: 30px;
+	border-radius: 16px;
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+}
+
+.wedding-names .groom-photo, .wedding-names .bride-photo {
+	width: 100%;
+	background-color: #FC5989;
+	border-radius: 50%;
+}
+
+.wedding-names .wedding-heart {
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.groom-name, .bride-name {
+	color: #FC5989;
+	font-size: 18px;
+	margin-top: 10px;
+	line-height: 1.2;
+}
+
+.wedding-loc-date {
+	font-size: 16px;
+	text-align: center;
+	font-weight: 300;
+	color: #606060;
+}
+
+.wedding-loc-date img {
+	height: 30px;
+}
+
+.view-more.btn:hover {
+	color: white;
+}
+
+.groom-cont {
+	padding-right: 0px;
+}
+
+.bride-cont {
+	padding-left: 0px;
 }
