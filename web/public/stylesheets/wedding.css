@@ -183,3 +183,47 @@ table > thead > tr > th, table > tbody > tr > td {
 	margin-bottom: 50px;
 	font-size: 18px;
 }
+
+#update-guest-list-modal .modal-content {
+	border-radius: 20px;
+	padding: 30px;
+}
+
+#update-guest-list-modal .modal-header, 
+#update-guest-list-modal .modal-footer {
+	color: #FC5989;
+	border: none;
+}
+
+#update-guest-list-modal .modal-header {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#update-guest-list-modal .modal-footer {
+	padding-top: 0px;
+}
+
+#update-guest-list-modal .modal-body {
+	color: #606060;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.modal-header img {
+	height: 40px;
+	vertical-align: middle;
+	margin-top: 6px;
+}
+
+#update-guest-list-modal .modal-footer button {
+	color: white;
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	border-radius: 25px;
+	width: 100%;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 20px;
+}
