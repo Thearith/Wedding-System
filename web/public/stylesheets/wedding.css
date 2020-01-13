@@ -76,15 +76,24 @@
 .wedding-guests-container {
 	margin-left: 120px;
 	margin-right: 120px;
+	margin-top: 80px;
+	margin-bottom: 30px;
 	color: #606060;
 }
 
-.wedding-guests-container div button {
-	margin-left: 20px;
+.wedding-guests-container .nav-tabs .active {
+	color: #FC5989;
 }
 
-.wedding-guests-container {
-	margin-top: 40px;
+.wedding-guests-container .nav-tabs a {
+	color: #606060;
+	padding: 12px 100px;
+}
+
+.wedding-guests-container .nav-tabs {
+	font-size: 26px;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .guests-table-title {
@@ -176,11 +185,12 @@ table > thead > tr > th, table > tbody > tr > td {
 	color: #FC5989;
 	font-size: 30px;
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
 }
 
 .instructions-qr-list {
 	margin-top: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 80px;
 	font-size: 18px;
 }
 
