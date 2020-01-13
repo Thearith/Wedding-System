@@ -1,3 +1,7 @@
+button:hover {
+	color: white !important;
+}
+
 .wedding-container {
 	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
 	color: white;

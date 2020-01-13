@@ -1,3 +1,7 @@
+button:hover {
+	color: white !important;
+}
+
 #wedding-title {
 	margin-top: 50px;
 	text-align: center;

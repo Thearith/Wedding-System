@@ -13,10 +13,6 @@ p {
 	font-family: 'Open Sans', sans-serif;
 }
 
-button:hover {
-	color: white !important;
-}
-
 .container nav {
 	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
 	padding: 0px 40px;
