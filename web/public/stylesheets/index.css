@@ -33,12 +33,6 @@
 	border-width: 5px;
 }
 
-.wedding-card .heart {
-	font-size: 20px; 
-	color: red; 
-	text-align: center;
-}
-
 .wedding-names {
 	text-align: center;
 }
@@ -136,10 +130,6 @@
 
 .wedding-loc-date img {
 	height: 30px;
-}
-
-.view-more.btn:hover {
-	color: white;
 }
 
 .groom-cont {

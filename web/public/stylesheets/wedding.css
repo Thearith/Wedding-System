@@ -1,59 +1,82 @@
+.wedding-container {
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	color: white;
+	padding: 30px;
+}
+
+.wedding-title-cont {
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 60px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 28px;
+}
+
 .name-container {
 	margin-left: 20px;
 	margin-right: 20px;
-	margin-top: 50px;
-	font-size: 2.8rem;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	font-size: 32px;
 }
 
-#groom-name {
-	text-align: right;
+.groom-photo, .bride-photo {
+	width: 160px;
+	border-radius: 50%;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+.wedding-heart {
+	width: 120px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-#bride-name {
-	padding-left: 10px;
-	padding-right: 10px;
+.groom-cont {
+	padding-right: 0px;
 }
 
-#heart {
-	color: red;
+.bride-cont {
+	padding-left: 0px;
+}
+
+#groom-name, #bride-name {
+	width: 240px;
 	text-align: center;
 }
 
-.location-time-container {
-	margin-top: 30px;
-	margin-left: 150px;
-	margin-right: 150px;
+.wedding-loc-date {
+	font-size: 24px;
+	text-align: center;
+	color: white;
+	font-weight: 300;
 }
 
-.location-time-container div {
-	margin-bottom: 8px;
-	font-size: 1.2rem;
-}
-
-.location-time-container div i {
-	margin-right: 20px;
+.wedding-loc-date img {
+	height: 40px;
 }
 
 .wedding-info-container {
-	margin-top: 60px;
+	margin-top: 30px;
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-.wedding-info-container i {
-	font-size: 2rem;
-	margin-bottom: 10px;
+.wedding-info-container img {
+	height: 120px;
 }
 
 .wedding-info-container p {
-	font-size: 1.3rem;
+	font-size: 50px;
+	font-weight: 300;
+	margin-top: -16px;
 }
 
 .wedding-guests-container {
 	margin-left: 120px;
 	margin-right: 120px;
+	color: #606060;
 }
 
 .wedding-guests-container div button {
@@ -65,16 +88,43 @@
 }
 
 .guests-table-title {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.guests-table-title button {
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	padding: 4px 20px;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.guests-table-title button img {
+	height: 40px;
+}
+
+.guests-table-title button span {
+	margin-right: 10px;
+    margin-left: 4px;
 }
 
 .guest-table {
 	margin-top: 20px;
+	text-align: center;
+	border-top: 1px solid #606060 !important;
 }
 
-.guests-title {
-	font-size: 2rem;
+table > thead > tr > th, table > tbody > tr > td {
+	border-bottom: 1px solid #303336 !important;
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
+	font-size: 20px !important;
+}
+
+.guest-table .table {
+	color: #606060;
 }
 
 #update-guest-list-modal .modal-footer i {
@@ -87,40 +137,49 @@
 }
 
 .qrcode-type-description {
-	font-style: italic;
-	margin-top: 16px;
-	font-size: 1rem;
-}
-
-.qrcode-type {
-	padding: 20px;
-    margin-top: 10px;
-    background-color: #f1f1f1;
+	font-size: 20px;
 }
 
 .qrcode-type-title {
-	margin-top: 10px;
-	font-size: 1.7rem;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 36px;
+	font-family: 'Montserrat', sans-serif;
+	color: #FC5989;
 }
 
 .qrcode-type {
 	margin-bottom: 40px;
 }
 
-.qrcode-type code {
-	color: #303336;
-}
-
 #qrcode-type1 {
 	max-height: 100%
 }
 
-.instructions-list {
+.qrcode-copy-clipboard {
 	margin-top: 20px;
-	margin-bottom: 50px;
+	background-image: linear-gradient(to bottom right, #FC5989 , #F76E66);
+	padding: 4px 20px;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
 }
 
-.qrcode-copy-clipboard {
-	display: block;
+.qrcode-copy-clipboard img {
+	height: 40px;
+}
+
+.instructions-qr-header {
 	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #FC5989;
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.instructions-qr-list {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	font-size: 18px;
 }

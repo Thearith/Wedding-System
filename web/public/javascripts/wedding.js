@@ -89,6 +89,17 @@ $(document).ready(function() {
 		$('#bride-name').text(wedding.brideName)
 		$('#location').text(wedding.location)
 		$('#date').text(wedding.date)
+
+		if (wedding.groomPhotoUrl != null) {
+			$('#groom-photo').attr("src", wedding.groomPhotoUrl)
+		}
+
+		if (wedding.groomPhotoUrl != null) {
+			$('#bride-photo').attr("src", wedding.bridePhotoUrl)
+		}
+
+		var title = `${wedding.groomName} & ${wedding.brideName}`
+		$('#wedding-title').text(title)
 	}
 
 	function updateGuests(guests) {
@@ -107,9 +118,9 @@ $(document).ready(function() {
 			rielSum += parseFloat(guest.rielAmount) || 0
 		}
 
-		$('#number-guests').text(guestCount + " Guests")
-		$('#dollar-gifts').text(dollarSum + " $")
-		$('#riel-gifts').text(rielSum + " ៛")
+		$('#number-guests').text(guestCount)
+		$('#dollar-gifts').text(dollarSum)
+		$('#riel-gifts').text(rielSum)
 	}
 
 	function updateGuestTable(guests) {
@@ -125,7 +136,7 @@ $(document).ready(function() {
 		var rielAmount = guest.rielAmount || 0
 		return $(
 			`<tr>\
-				<th scope='row'>${index+1}</th>\
+				<td scope='row'>${index+1}</td>\
 				<td>${guest.name}</td>
 				<td>${dollarAmount} $</td>
 				<td>${rielAmount} $</td>

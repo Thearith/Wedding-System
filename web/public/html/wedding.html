@@ -7,49 +7,69 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 			crossorigin="anonymous" />
 
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+
 		<link rel="stylesheet" href="/stylesheets/stylesheet.css" />
 		<link rel="stylesheet" href="/stylesheets/wedding.css" />
 	</head>
 	<body>
 		
 		<div class="container">
-			
-			<nav class="navbar navbar-dark">
-				<a class="navbar-brand" href="/">Wedding System</a>
-				<a class="navbar-text white-text ml-auto" id="logout" href="/">Log Out</a>
-			</nav>
+			<div class="wedding-container">
+				<div class="row wedding-title-cont d-flex justify-content-between">
+					<span id="wedding-title" class="wedding-title">Wedding</span>
+					<a id="logout">Log out</a>
+				</div>
 
-			<div class="row name-container">
-				<span class="col-5" id="groom-name"></span>
-				<span class="col-2" id="heart">
-					<i class="fas fa-heart"></i>
-				</span>
-				<span class="col-5" id="bride-name"></span>
-			</div>
+				<div class="row d-flex align-items-center justify-content-center">
+					<div class="col-4 d-flex groom-cont justify-content-end">
+						<img id="groom-photo" class="groom-photo" src="/images/ic_groom.png" />
+					</div>
+					<div class="col-1 d-flex justify-content-center">
+						<img class="wedding-heart" src="/images/heart_white.png" />
+					</div>
+					<div class="col-4 d-flex bride-cont justify-content-start">
+						<img id="bride-photo" class="bride-photo" src="/images/ic_bride.png" />
+					</div>
+				</div>
 
-			<div class="location-time-container">
-				<div class="d-flex align-items-center">
-					<i class="fas fa-map-marker-alt"></i>
-					<p id="location"></p>
+				<div class="row name-container d-flex align-items-center justify-content-center">
+					<div class="col-4 groom-name groom-cont d-flex justify-content-end">
+						<span id="groom-name"></span>
+					</div>
+					<span class="col-1"></span>
+					<div class="col-4 bride-name bride-cont d-flex justify-content-start">
+						<span id="bride-name"></span>
+					</div>
 				</div>
-				<div class="d-flex align-items-center">
-					<i class="far fa-calendar-alt"></i>
-					<p id="date"></p>
+	
+				<div class="row d-flex justify-content-center">
+					<span class="wedding-loc-date d-flex align-items-center">
+						<img src="/images/ic_location_white.png">
+						<span id="location" class="location"></span>
+					</span>
 				</div>
-			</div>
-
-			<div class="row wedding-info-container">
-				<div class="col-4 d-flex flex-column align-items-center">
-					<i class="fas fa-users"></i>
-					<p id="number-guests"></p>
+				<div class="row d-flex justify-content-center">
+					<span class="wedding-loc-date d-flex align-items-center">
+						<img src="/images/ic_date_white.png" />
+						<span id="date" class="wedding-date"></span>
+					</span>
 				</div>
-				<div class="col-4 d-flex flex-column align-items-center">
-					<i class="fas fa-dollar-sign"></i>
-					<p id="dollar-gifts"></p>
-				</div>
-				<div class="col-4 d-flex flex-column align-items-center">
-					<i class="far fa-money-bill-alt"></i>
-					<p id="riel-gifts"></p>
+	
+				<div class="row wedding-info-container">
+					<div class="col-4 d-flex flex-column align-items-center">
+						<img src="/images/ic_guests.png" />
+						<p id="number-guests">0</p>
+					</div>
+					<div class="col-4 d-flex flex-column align-items-center">
+						<img src="/images/ic_dollar.png" />
+						<p id="dollar-gifts">0</p>
+					</div>
+					<div class="col-4 d-flex flex-column align-items-center">
+						<img src="/images/ic_riel.png" />
+						<p id="riel-gifts">0</p>
+					</div>
 				</div>
 			</div>
 
@@ -69,10 +89,10 @@
 				
 				<div class="tab-content">
 					<div class="tab-pane fade show active" id="guests" role="tabpanel" aria-labelledby="guests-tab">
-						<div class="guests-table-title d-flex justify-content-between">
-							<p class="guests-title">Guests</p>
-							<button class="btn btn-primary" data-toggle="modal" data-target="#update-guest-list-modal">
-								Update Guests List
+						<div class="guests-table-title d-flex justify-content-center">
+							<button class="btn d-flex align-items-center" data-toggle="modal" data-target="#update-guest-list-modal">
+								<img src="/images/add_white.png" />
+								<span>ADD GUEST</span>
 							</button>
 						</div>
 
@@ -81,9 +101,9 @@
 								<thead>
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Name</th>
-										<th scope="col">Gift Amount ($)</th>
-										<th scope="col">Gift Amount (៛)</th>
+										<th scope="col">NAME</th>
+										<th scope="col">GIFT AMOUNTS ($)</th>
+										<th scope="col">GIFT AMOUNTS (៛)</th>
 									</tr>
 								</thead>
 								<tbody>		
@@ -94,8 +114,8 @@
 
 					<div class="tab-pane fade show" id="qrcode" role="tabpanel" aria-labelledby="qrcode-tab">
 
-						<h2>Instructions</h2>
-						<ol class="instructions-list">
+						<p class="instructions-qr-header">INSTRUCTIONS</p>
+						<ol class="instructions-qr-list">
 							<li>There are 3 types of QR Codes with different use cases.</li>
 							<li>Go to this website <a href="https://qrexplore.com/generate/" target="_blank">https://qrexplore.com/generate/</a> to generate QR Codes.</li>
 							<li>For every type, click "Copy to Clipboard" and paste it on the website.</li>
@@ -110,13 +130,13 @@
 						</p>
 
 						<div class="d-flex justify-content-end">
-							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type1">
-								<i class="far fa-copy"></i>
-								Copy to Clipboard
+							<button class="btn qrcode-copy-clipboard d-flex align-items-center" data-target="#qrcode-type1">
+								<img src="/images/ic_clipboard.png" />
+								<span>COPY TO CLIPBOARD</span>
 							</button>
 						</div>
 
-						<div class="qrcode-type">
+						<div class="qrcode-type hide">
 							<code id="qrcode-type1"></code>
 						</div>
 
@@ -126,13 +146,13 @@
 						</p>
 
 						<div class="d-flex justify-content-end">
-							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type2">
-								<i class="far fa-copy"></i>
-								Copy to Clipboard
+							<button class="btn qrcode-copy-clipboard d-flex align-items-center" data-target="#qrcode-type2">
+								<img src="/images/ic_clipboard.png" />
+								<span>COPY TO CLIPBOARD</span>
 							</button>
 						</div>
 
-						<div class="qrcode-type">
+						<div class="qrcode-type hide">
 							<code id="qrcode-type2"></code>
 						</div>
 
@@ -141,13 +161,13 @@
 						</p>
 
 						<div class="d-flex justify-content-end">
-							<button class="btn btn-success qrcode-copy-clipboard" data-target="#qrcode-type3">
-								<i class="far fa-copy"></i>
-								Copy to Clipboard
+							<button class="btn qrcode-copy-clipboard d-flex align-items-center" data-target="#qrcode-type3">
+								<img src="/images/ic_clipboard.png" />
+								<span>COPY TO CLIPBOARD</span>
 							</button>
 						</div>
 
-						<div class="qrcode-type">
+						<div class="qrcode-type hide">
 							<code id="qrcode-type3"></code>
 						</div>
 						
