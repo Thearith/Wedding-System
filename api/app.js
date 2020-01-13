@@ -98,11 +98,15 @@ router.post("/weddings/:weddingId", asyncWrap(async (req, res) => {
 		res.status(200).json(wedding)
 
 	} else {
-		const guestNames = req.body.guests || []
-		const guests = []
-		for(i = 0; i<guestNames.length; i++) {
-			guests[i] = {
-				name: guestNames[i]
+		const addedGuestNames = req.body.guests || []
+		const guests = await weddingDb.getWeddingGuests(weddingId)
+		const guestNames = guests.map(guest => guest.name)
+		for(i = 0; i<addedGuestNames.length; i++) {
+			const guestName = addedGuestNames[i]
+			if (!guestNames.includes(guestName)) {
+				guests.push({
+					name: guestName
+				})
 			}
 		}
 

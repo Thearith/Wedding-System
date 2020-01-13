@@ -75,6 +75,8 @@ $(document).ready(function() {
 			success: function(data) {
 				$('#update-guest-list-modal').modal('hide')
 				$('#update-guest-list-modal form')[0].reset()
+				var label = $("label[for='" + $("#guest-list-textarea").attr('id') + "']")
+				label.html(`Guest List <i>(Each name per line)</i>:`)
 				$('.guest-table tbody').empty()
 				updateGuests(data.guests)
 			},
