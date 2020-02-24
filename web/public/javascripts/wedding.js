@@ -92,11 +92,11 @@ $(document).ready(function() {
 		$('#location').text(wedding.location)
 		$('#date').text(wedding.date)
 
-		if (wedding.groomPhotoUrl != null) {
+		if (wedding.groomPhotoUrl) {
 			$('#groom-photo').attr("src", wedding.groomPhotoUrl)
 		}
 
-		if (wedding.groomPhotoUrl != null) {
+		if (wedding.groomPhotoUrl) {
 			$('#bride-photo').attr("src", wedding.bridePhotoUrl)
 		}
 

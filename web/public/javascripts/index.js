@@ -104,11 +104,11 @@ $(document).ready(function() {
 		weddingCard.find('.location').text(wedding.location)
 		weddingCard.find('.view-more').data("id", wedding.id)
 
-		if (wedding.groomPhotoUrl != null) {
+		if (wedding.groomPhotoUrl) {
 			weddingCard.find('.groom-photo').attr("src", wedding.groomPhotoUrl)
 		}
 
-		if (wedding.groomPhotoUrl != null) {
+		if (wedding.groomPhotoUrl) {
 			weddingCard.find('.bride-photo').attr("src", wedding.bridePhotoUrl)
 		}
 
