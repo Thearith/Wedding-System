@@ -46,3 +46,7 @@ a {
 ::placeholder {
 	color: white;
 }
+
+.navbar-brand {
+	margin-right: 0px;
+}
